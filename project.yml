@@ -1,0 +1,37 @@
+name: USBMirror
+options:
+  bundleIdPrefix: com.yuno
+  deploymentTarget:
+    iOS: 15.0
+targets:
+  USBMirror:
+    type: application
+    platform: iOS
+    deploymentTarget: "15.0"
+    sources:
+      - path: ios/USBMirror
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.yuno.USBMirror
+        INFOPLIST_FILE: ios/USBMirror/Info.plist
+        TARGETED_DEVICE_FAMILY: "1,2"
+        CODE_SIGNING_ALLOWED: "NO"
+        CODE_SIGNING_REQUIRED: "NO"
+        CODE_SIGN_IDENTITY: ""
+    dependencies:
+      - target: BroadcastExtension
+
+  BroadcastExtension:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: "15.0"
+    sources:
+      - path: ios/BroadcastExtension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.yuno.USBMirror.BroadcastExtension
+        INFOPLIST_FILE: ios/BroadcastExtension/Info.plist
+        TARGETED_DEVICE_FAMILY: "1,2"
+        CODE_SIGNING_ALLOWED: "NO"
+        CODE_SIGNING_REQUIRED: "NO"
+        CODE_SIGN_IDENTITY: ""
